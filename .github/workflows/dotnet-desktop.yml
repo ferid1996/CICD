@@ -24,4 +24,11 @@ jobs:
       run: dotnet build --configuration Release --no-restore
 
     - name: Run tests
+      id: run-tests  # Bu adı kullanarak daha sonra test sonuçlarına erişebiliriz
       run: dotnet test --configuration Release --no-build --verbosity normal
+
+    - name: Check test result
+      if: steps.run-tests.outcome != 'success'  # Eğer testler başarısız olduysa
+      run: |
+        echo "Tests failed. Stopping the merge."
+        exit 1  # Hata kodu ile çıkış yaparak birleştirmeyi durdur
