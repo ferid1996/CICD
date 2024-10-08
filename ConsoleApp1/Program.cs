@@ -4,6 +4,8 @@ int c = a - b;
 string cc = 15;
 string cc = 189898;
 string cb = 189898;
+string casas= 189898;
+
 
 Console.WriteLine(cc);
 
