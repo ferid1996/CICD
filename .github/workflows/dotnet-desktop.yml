@@ -19,10 +19,3 @@ jobs:
 
     - name: Execute unit tests
       run: dotnet test --no-build --verbosity normal  # Testleri çalıştır
-
-    - name: Check for failed tests
-      run: |
-        if [ $? -ne 0 ]; then
-          echo "Unit tests failed, please fix the issues before merging."
-          exit 1  # Hatalı test varsa çıkış yap
-        fi
